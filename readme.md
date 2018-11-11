@@ -39,50 +39,50 @@ http://account.youdao.com/login?service=dict&back_url=http%3A%2F%2Fdict.youdao.c
 ### 详细分析（图文版）
 #### 第一步：把网址copy到浏览器，进入后按f12进入控制台
 
-![QQ截图20181111224331.jpg](.\QQ截图20181111224331.jpg)
+![QQ截图20181111224331.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111224331.jpg)
 
 
 #### 第二步：故意输入一个错误的密码查看控制台的变化并找到post请求的网页接口分析
 
-![1.jpg](.\1.jpg)
+![1.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/1.jpg)
 
 - 登录接口和请求方式
 
-![QQ截图20181111224951.jpg](.\QQ截图20181111224951.jpg)
+![QQ截图20181111224951.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111224951.jpg)
 
 - 请求参数
 
-![2.png](.\2.png)
+![2.png](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/2.png)
 
 
 ### 找到js入口，分析加密方式
 ####  方法一
 - 回退一下到登录页面，找到form里有用的参数这里以`validate`为关键字参数
-![20181111225620.png](.\20181111225620.png)
+![20181111225620.png](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/20181111225620.png)
 
 - 运用google浏览器实现搜索
 
-![QQ截图20181111225833.jpg](.\QQ截图20181111225833.jpg)
+![QQ截图20181111225833.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111225833.jpg)
 
 - 找到对应的函数，并对js进行优化输出
 
-![QQ截图20181111225947.jpg](.\QQ截图20181111225947.jpg)
+![QQ截图20181111225947.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111225947.jpg)
 
 - 找到加密的方法，并打上断点进行调试
 
-![QQ截图20181111230101.jpg](.\QQ截图20181111230101.jpg)
+![QQ截图20181111230101.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111230101.jpg)
 
 - 找出`hex_md5`对应的js文件，保存下来
 
-![QQ截图20181111230943.jpg](.\QQ截图20181111230943.jpg)
+![QQ截图20181111230943.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111230943.jpg)
 
-![QQ截图20181111231149.jpg](.\QQ截图20181111231149.jpg)
+![QQ截图20181111231149.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111231149.jpg)
 
 
 - 方法二
 - 直接用加密的参数名也就是`请求参数`里的`password`进行全局搜索和方法一的前三步相同
 - 这样也能找到相应的参数总共有13个password这里是第`12个位置`的password
-![QQ截图20181111231620.jpg](.\QQ截图20181111231620.jpg)
+![QQ截图20181111231620.jpg](https://github.com/WYL-BruceLong/Spider_JS_ReverseParsin/blob/master/images/QQ%E6%88%AA%E5%9B%BE20181111231620.jpg)
 
 
 ### 完整的实现代码
